@@ -1,0 +1,443 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <!--Título do site-->
+		<title>Jumping Ball</title>
+       <!--Ligação ao ficheiro "Sprite.js"-->
+		<script src="Sprite.js"></script>
+        <!--Colocar a janela do jogo no meio da página -->
+        <style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				margin: auto;
+			}
+		</style>
+	</head>
+    
+    <!--Corpo do Site (Jogo)-->
+	<body style="background-color:#071910;">
+	<script>
+        
+        //Variáveis do jogo - Velocidade e máximo de saltos
+        var canvas, ctx, ALTURA, LARGURA, VELOCIDADE = 4, maxPulos = 5,
+        estadoAtual, record, img,
+            
+        //Níveis
+		pontosParaNovaFase = [5, 10, 15, 20, 30, 40, 50, 100, 200],
+		faseAtual = 0,
+
+        //Label - Atributos
+		labelNovaFase = {
+			texto: "",
+			opacidade: 0.0,
+
+			//Alterar a opacidade do texto - Faz o texto aparecer
+            fadeIn: function(dt) {
+				var fadeInId = setInterval(function() {
+					if (labelNovaFase.opacidade < 1.0)
+						labelNovaFase.opacidade += 0.01;
+
+					else {
+						clearInterval(fadeInId);
+					}
+				}, 10 * dt);
+			},
+            
+            //Faz com que a opacidade do texto volte a zero - Faz o texto desaparecer
+			fadeOut: function(dt) {
+				var fadeOutId = setInterval(function() {
+					if (labelNovaFase.opacidade > 0.0)
+						labelNovaFase.opacidade -= 0.01;
+
+					else {
+						clearInterval(fadeOutId);
+					}
+				}, 10 * dt);
+			}
+		},
+
+        //Estados
+		estados = {
+			jogar: 0, //Íncio
+			jogando: 1, //Jogo sendo atualizado
+			perdeu: 2 //Morrer
+		},
+
+        //Chão
+		chao = {
+            //Coordenadas
+			y: 550,
+			x: 0,
+			altura: 50,
+
+			//Atualiza o chão através do x
+            atualiza: function() {
+				this.x -= VELOCIDADE;
+
+                //Quando o chão for menor ou igual que -30
+				if (this.x <= -30)
+                    //Desenho novamente o chão (loop)
+					this.x += 30;
+			},
+
+            //Método desenha - Desenha o chão
+			desenha: function() {
+                //Desenha uma vez o chão
+				spriteChao.desenha(this.x, this.y);
+                //Assim que o chão anterior acabar ele coloca outro chão em seguida
+				spriteChao.desenha(this.x + spriteChao.largura, this.y);
+			}
+		},
+
+        // Bola
+		bloco = {
+            //Coordenadas iniciais e como queremos que a bola se mexa 
+			x: 50,
+			y: 0,
+			altura: spriteBoneco.altura,
+			largura: spriteBoneco.largura,
+			gravidade: 1.6,
+			velocidade: 0,
+			forcaDoPulo: 23.6,
+			qntPulos: 0,
+			score: 0,
+			rotacao: 0,
+			vidas: 3,
+			colidindo: false,
+
+            //Atualizar a bola
+			atualiza: function() {
+                //A gravidade irá ser sempre constante
+				this.velocidade += this.gravidade;
+                //Mudamos o y 
+				this.y += this.velocidade;
+                //Rotação da Bola (Se comentar a bola não roda)
+                this.rotacao += Math.PI / 180 * VELOCIDADE;
+
+                //A bola só irá ficar no chão se a a afirmação for verdadeira 
+                if (this.y > chao.y - this.altura && estadoAtual != estados.perdeu) {
+					this.y = chao.y - this.altura;
+                    //A quantidade de saltos quando a bola está no chão vai ser zero
+					this.qntPulos = 0;
+                    //A velocidade da bola quando estiver no chão será zero
+					this.velocidade = 0;
+				}
+			},
+
+            //Método pula - Permite fazer com que a nossa bola salte
+			pula: function() {
+                //Se a quantidade de pulos que a bola deu for menor do que o número máximo de saltos 
+                //Significa que posso dar mais um salto
+				if (this.qntPulos < maxPulos) {
+                    //Ao atribuir um valor negativo, a bola irá para cima
+					this.velocidade = -this.forcaDoPulo;
+					this.qntPulos++;
+				}
+			},
+
+            //Reseta o jogo 
+			reset: function() {
+				this.velocidade = 0;
+				this.y = 0;
+                //Se apontuação for maior que o record
+				if (this.score > record) {
+                    //Esse valor será guardado dentro do localStorage
+					localStorage.setItem("record", this.score);
+					//Atualiza o recorde
+                    record = this.score;
+				}
+
+				this.vidas = 3;
+				this.score = 0;
+				VELOCIDADE = 4;
+				faseAtual = 0;
+				this.gravidade = 1.5;
+
+			},
+
+            //Desenhar a bola 
+			desenha: function() {
+                //Salvar o contexto (ctx) do jogo
+				ctx.save();
+				ctx.translate(this.x + this.largura / 2, this.y + this.altura / 2);
+				ctx.rotate(this.rotacao);
+				spriteBoneco.desenha(-this.largura / 2, -this.altura / 2);
+                //Voltar ao ínicio
+				ctx.restore();
+			}
+		},
+
+        //Variável obstáculos
+		obstaculos = {
+            //Vetor obs - Obstáculos
+			_obs: [],
+			_scored: false,
+            //Nome dos obstáculos
+			_sprites: [redObstacle, pinkObstacle, blueObstacle, greenObstacle,yellowObstacle],
+            //Começamos com zero
+			timerInsere: 0,
+
+            //Metodo insere - Inserir os obstáculos
+			insere: function() {
+                //Função push - As medidas do bloco
+				this._obs.push({
+					x: LARGURA,
+					y: chao.y - Math.floor(20 + Math.random() * 100),
+					largura: 50,
+					sprite: this._sprites[Math.floor(this._sprites.length * Math.random())]
+				});
+
+                //Fazemos o "tempoInsere" tomar o valor de 30
+                //Os obstáculos terão no minimmo 30 de espaçamento e no máximo 50
+				this.timerInsere = 30 + Math.floor(20 * Math.random());
+			},
+
+			atualiza: function() {
+                //Se o "timerInsere" for igual a zero
+				if (this.timerInsere == 0)
+                    //Chamamos o "this.insere" (Método insere)
+					this.insere();
+
+                //Se não for zero o programa coloca o valor sendo zero
+                //E depois volta a ter 30 novamente (loop infinito)
+				else
+					this.timerInsere--;
+
+                //loop para a posição dos obstáculos
+				for (var i = 0, tam = this._obs.length; i < tam; i++) {
+                    //Variável obj - Selecionamos o elemento que o "for" está a apontar "i"
+					var obj = this._obs[i];
+                    //Aplica o x consoante a velocidade estabelecida
+					obj.x -= VELOCIDADE;
+
+                    //COLISÃO
+                    //As afirmações tem de ser todas verdadeiras (Por isso usamos o &&)
+                    if (!bloco.colidindo && obj.x <= bloco.x + bloco.largura && 
+                        bloco.x <= obj.x + obj.largura && 
+                        obj.y <= bloco.y + bloco.altura) {
+
+                        //Colisão
+						bloco.colidindo = true
+
+                        //Após culidir (true) o bloco.colidindo passa a ser false para poder voltar a colidir 
+						setTimeout(function() {
+							bloco.colidindo = false;
+						}, 500);
+
+                        //Quando colidir com um obstáculo se tiver 1 ou mais vidas
+						if (bloco.vidas >= 1)
+                            //Fico com menos uma vida
+							bloco.vidas--;
+                        
+                        //Se tiver zero vidas perco
+						else {
+							estadoAtual = estados.perdeu
+						}
+					}
+                    //Se não colidir num bloco
+					else if (obj.x <= 0 && !obj._scored) {
+                        //Irá acrescentar um valor 
+						bloco.score++;
+						obj._scored = true;
+
+                        //Verificar se atingimos a pontuação para o próximo nível, se acontecer irá passar para o próximo nível
+						if (faseAtual < pontosParaNovaFase.length &&
+							 bloco.score == pontosParaNovaFase[faseAtual])
+							passarDeFase();
+					}
+
+					else if (obj.x <= -obj.largura) {
+						this._obs.splice(i, 1);
+						tam--;
+						i--;
+					}
+				}
+			},
+
+			//Limpa os obstáculos que estavam na tela - Ao fazemos isto zeramos o jogo 
+            limpa: function() {
+				this._obs = [];
+			},
+
+			desenha: function() {
+                //Criação do loop dos blocos
+				for (var i = 0, tam = this._obs.length; i < tam; i++) {
+                    //Variável obs - Selecionamos o elemento que vamos desenhar
+					var obj = this._obs[i];
+
+					obj.sprite.desenha(obj.x, obj.y);
+				}
+			}
+		};
+        //Irá saltar se as afirmações forem verdadeiras
+		function clique(event) {
+			if (estadoAtual == estados.jogar) {
+				estadoAtual = estados.jogando;
+				frames = 0;
+			}
+
+            //Se o estado atual for igual ao estado perdeu (tela do perdeu)
+			else if (estadoAtual == estados.perdeu && bloco.y >= 2 * ALTURA) {
+                //Mudamos o estado atual para jogar (Quando aparece a tela do perdeu ao clicarmos vamos para a tela do Play)
+				estadoAtual = estados.jogar;
+                //Limpa os obstáculos
+				obstaculos.limpa();
+                //Reseta a bola
+				bloco.reset();
+			}
+
+            //Se eu estiver a jogar
+			else if (estadoAtual == estados.jogando)
+                //A minha bola pode saltar
+				bloco.pula();
+		}
+
+        //Função passar de nível 
+		function passarDeFase() {
+			VELOCIDADE++;
+			faseAtual++;
+			bloco.vidas++;
+
+			if (faseAtual == 4)
+				bloco.gravidade *= 0.6;
+
+            //Texto + Nível
+			labelNovaFase.texto = "Level " + faseAtual;
+            //Tempo de duração do texto aparecer
+			labelNovaFase.fadeIn(0.4);
+            //Tempo de duração do texto desaparecer
+			setTimeout(function() {
+				labelNovaFase.fadeOut(0.4);
+			}, 800);
+		}
+        //Função principal - Medidas da janela do jogo (não do site)
+		function main() {
+			ALTURA = window.innerHeight;
+			LARGURA = window.innerWidth;
+
+			if (LARGURA >= 500) {
+				LARGURA = 600;
+				ALTURA = 600;
+			}
+            //Criação do elemento Canvas
+			canvas = document.createElement("canvas");
+            //Padrões do Canvas - Altura e Largura
+			canvas.width = LARGURA;
+			canvas.height = ALTURA;
+            //Borda do jogo 
+			canvas.style.border = "10px solid #FFF";
+
+            //Definnir o contexto - Os elementos do jogo serão todos em 2D
+			ctx = canvas.getContext("2d");
+			
+           //Introduzir o canvas no corpo do html
+            document.body.appendChild(canvas);
+
+            //Verificar se o jogador clicou
+			document.addEventListener("mousedown", clique);
+
+			//Corresponde à tela do play (Tela inicial)
+            estadoAtual = estados.jogar;
+            //Comando, procurar pelo item "record" no localStorage
+			record = localStorage.getItem("record");
+
+            //Se o record não for encontrado o valor será zero
+			if (record == null)
+				record = 0;
+
+            //Imagens do jogo
+			img = new Image();
+			img.src = "imagens/image.png";
+            
+            //Entramos no loop do jogo
+			roda();
+		}
+
+        //Atualizar o jogo e desenhar
+		function roda() {
+			atualiza();
+			desenha();
+            
+            //Loop da function roda (Pois queremos que ele atualize e desenhe sempre)
+			window.requestAnimationFrame(roda);
+		}
+
+        //Função atualiza
+		function atualiza() {
+            //Verificar se é verdade
+			if (estadoAtual == estados.jogando)
+                //Se for verdade ele atualiza os obstáculos
+				obstaculos.atualiza();
+
+            //Atualiza o chão e a bola
+			chao.atualiza();
+			bloco.atualiza();
+		}
+
+        //Função desenha
+		function desenha() {
+            //Desenha a imagem de fundo
+			bg.desenha(0, 0);
+            //Cor da pontuação e da vida
+			ctx.fillStyle = "#FF0000";
+            //Tamanho da letra
+			ctx.font = "50px Arial";
+            //Coordenadas da pontuação
+			ctx.fillText(bloco.score, 30, 68);
+            //Coordenadas da vida
+			ctx.fillText(bloco.vidas, 540, 68);
+            //Nível - Cor + Texto
+			ctx.fillStyle = "rgba(0, 0, 0, " + labelNovaFase.opacidade + ")";
+            //Coordenadas do texto do nível
+			ctx.fillText(labelNovaFase.texto, canvas.width / 2 - ctx.measureText(labelNovaFase.texto).width / 2, canvas.height / 3);
+
+            //Se o estadoAtual = estados.jogando (Se o jogo estiver a correr, se eu estiver a jogar)
+			if (estadoAtual == estados.jogando)
+				obstaculos.desenha();
+
+            //Desenhar o chão e a bola
+			chao.desenha();
+			bloco.desenha();
+
+            //PLAY
+            //Se o estadoAtual = estados.jogar (Tela Princial)
+			if (estadoAtual == estados.jogar)
+                //Posição do botão do Play (Jogar)
+				jogar.desenha(LARGURA / 2 - jogar.largura / 2, ALTURA / 2 - jogar.altura / 2);
+            
+            //TELA PERDEU
+            //Se o estadoAtual = estados.perdeu (Tela Perdeu)
+			if (estadoAtual == estados.perdeu) {
+                //Posição da tela do perdeu
+                perdeu.desenha(LARGURA / 2 - perdeu.largura / 2, ALTURA / 2 - perdeu.altura / 2 - spriteRecord.altura / 2);
+
+                //Posição do Record
+				spriteRecord.desenha(LARGURA / 2 - spriteRecord.largura / 2, ALTURA / 2 + perdeu.altura / 2 - spriteRecord.altura / 2 - 25);
+
+                //Cor da pontuação
+				ctx.fillStyle = "#FFF";
+                //Posição da pontuação do Recorde
+				ctx.fillText(bloco.score, 375, 390);
+
+                //Se a pontuação feita for maior do que o recorde
+				if (bloco.score > record) {
+					novo.desenha(LARGURA / 2 - 180, ALTURA / 2 + 30);
+                    //Irá desenhar no Record
+					ctx.fillText(bloco.score, 420, 470);
+				}
+
+				else
+                    //Posição da Pontuação feita
+					ctx.fillText(record, 420, 470);
+			}
+		}
+        
+		main();
+	</script>
+	</body>
+</html>
