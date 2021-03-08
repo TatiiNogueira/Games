@@ -1,0 +1,24 @@
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).exe.config
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).exe
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).pdb
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).xml
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbprojAssemblyReference.cache
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN__VB_.Form1.resources
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN__VB_.Resources.resources
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbproj.GenerateResource.cache
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbproj.CoreCompileInputs.cache
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).exe
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).xml
+C:\Users\nogue\Desktop\Work\VB\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).pdb
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).exe.config
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).exe
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).pdb
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\bin\Debug\SPIN (VB).xml
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbprojAssemblyReference.cache
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN__VB_.Form1.resources
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN__VB_.Resources.resources
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbproj.GenerateResource.cache
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).vbproj.CoreCompileInputs.cache
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).exe
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).xml
+C:\Users\nogue\Desktop\Work\VB\Mostra\SPIN (VB)\SPIN (VB)\obj\Debug\SPIN (VB).pdb
