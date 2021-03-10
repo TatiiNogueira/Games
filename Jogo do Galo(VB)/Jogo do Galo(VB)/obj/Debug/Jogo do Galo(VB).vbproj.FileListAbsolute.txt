@@ -1,0 +1,12 @@
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\bin\Debug\Jogo do Galo(VB).exe.config
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\bin\Debug\Jogo do Galo(VB).exe
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\bin\Debug\Jogo do Galo(VB).pdb
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\bin\Debug\Jogo do Galo(VB).xml
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).vbprojAssemblyReference.cache
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo_do_Galo_VB_.Form1.resources
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo_do_Galo_VB_.Resources.resources
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).vbproj.GenerateResource.cache
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).vbproj.CoreCompileInputs.cache
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).exe
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).xml
+C:\Users\nogue\Desktop\Work\VB\Jogo do Galo(VB)\Jogo do Galo(VB)\obj\Debug\Jogo do Galo(VB).pdb
