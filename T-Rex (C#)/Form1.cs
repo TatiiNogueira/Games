@@ -142,7 +142,7 @@ namespace T_Rex
             txtScore.Text = "Pontuação: " + score;
             Dino.Image = Properties.Resources.Dino_Run;
             isGameOver = false;
-            //Posição x do T-Rex
+            //Posição y do T-Rex
             Dino.Top = 358;
 
             //Um para cada
