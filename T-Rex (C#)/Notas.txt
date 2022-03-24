@@ -1,0 +1,12 @@
+Links:
+	-> Imagens
+		-> https://www.mooict.com/c-tutorial-create-a-t-rex-endless-runner-game-in-visual-studio/#google_vignette
+	-> Video
+		-> https://www.youtube.com/watch?v=35RTKAFDjY0
+
+
+NOTAS:
+Saltar ->  False
+Empurra Dino para baixo
+Saltar ->  True
+Empurra Dino para cima

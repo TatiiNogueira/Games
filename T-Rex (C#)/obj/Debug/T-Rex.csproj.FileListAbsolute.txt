@@ -1,0 +1,10 @@
+C:\Users\Utilizador\Desktop\C#\T-Rex\bin\Debug\T-Rex.exe.config
+C:\Users\Utilizador\Desktop\C#\T-Rex\bin\Debug\T-Rex.exe
+C:\Users\Utilizador\Desktop\C#\T-Rex\bin\Debug\T-Rex.pdb
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T-Rex.csproj.AssemblyReference.cache
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T_Rex.Form1.resources
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T_Rex.Properties.Resources.resources
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T-Rex.csproj.GenerateResource.cache
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T-Rex.csproj.CoreCompileInputs.cache
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T-Rex.exe
+C:\Users\Utilizador\Desktop\C#\T-Rex\obj\Debug\T-Rex.pdb
