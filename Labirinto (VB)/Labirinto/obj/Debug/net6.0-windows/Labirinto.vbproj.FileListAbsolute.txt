@@ -1,0 +1,17 @@
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.vbproj.AssemblyReference.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.vbproj.GenerateResource.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.AssemblyInfoInputs.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.AssemblyInfo.vb
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.vbproj.CoreCompileInputs.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\bin\Debug\net6.0-windows\Labirinto.exe
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\bin\Debug\net6.0-windows\Labirinto.deps.json
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\bin\Debug\net6.0-windows\Labirinto.runtimeconfig.json
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\bin\Debug\net6.0-windows\Labirinto.dll
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\bin\Debug\net6.0-windows\Labirinto.pdb
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.dll
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\refint\Labirinto.dll
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.pdb
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.genruntimeconfig.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\ref\Labirinto.dll
+C:\Users\Utilizador\Desktop\Estudo\VB\Labirinto\Labirinto\obj\Debug\net6.0-windows\Labirinto.Labirintop.resources
