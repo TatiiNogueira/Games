@@ -1,0 +1,13 @@
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\bin\Debug\Xadrez.exe.config
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\bin\Debug\Xadrez.exe
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\bin\Debug\Xadrez.pdb
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\bin\Debug\Xadrez.xml
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.vbproj.AssemblyReference.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.Form1.resources
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.Resources.resources
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.vbproj.GenerateResource.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.vbproj.CoreCompileInputs.cache
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.exe
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.xml
+C:\Users\Utilizador\Desktop\Estudo\VB\Xadrez\Xadrez\obj\Debug\Xadrez.pdb
