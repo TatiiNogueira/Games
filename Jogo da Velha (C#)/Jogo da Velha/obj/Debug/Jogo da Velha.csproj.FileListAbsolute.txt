@@ -1,0 +1,10 @@
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.exe.config
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.exe
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\bin\Debug\Jogo da Velha.pdb
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.csproj.AssemblyReference.cache
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo_da_Velha.Properties.Resources.resources
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.csproj.GenerateResource.cache
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.csproj.CoreCompileInputs.cache
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.exe
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo da Velha.pdb
+C:\Users\Tatiana\Desktop\Estudo\C#\Jogo da Velha\Jogo da Velha\obj\Debug\Jogo_da_Velha.form_Jogo_Velha.resources
